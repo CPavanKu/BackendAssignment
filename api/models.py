@@ -24,9 +24,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=30)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-
-    # Add other fields as needed (e.g., profile picture, bio, etc.)
-
     objects = CustomUserManager()
 
 class Post(models.Model):
@@ -34,7 +31,4 @@ class Post(models.Model):
     content = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-
-    # Add other fields and relationships as needed
-
 
